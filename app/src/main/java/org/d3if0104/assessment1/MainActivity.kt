@@ -9,11 +9,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import org.d3if0104.assessment1.databinding.ActivityMainBinding
+import org.d3if0104.assessment1.model.HasilPajak
+import org.d3if0104.assessment1.ui.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this)[MainViewModel::class.java]
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnHitung.setOnClickListener { hitung() }
+        viewModel.getHasilPajak().observe(this, { showResult(it) })
+
     }
 
     private fun hitung() {
@@ -35,16 +44,26 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.harga_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val jumlah = binding.etJumlah.text.toString().toDouble()
+        val jumlah = binding.etJumlah.text.toString()
         if (TextUtils.isEmpty(jumlah.toString())){
             Toast.makeText(this, R.string.jumlah_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val ppn = (harga.toDouble() * jumlah) * 10/100
-        binding.tvHasil.text = getString(R.string.hasil_x, ppn)
-        val total = ppn + (harga.toDouble()* jumlah)
-        binding.tvTotal.text = getString(R.string.total_x, total)
+         viewModel.hitung(
+            harga.toDouble(),
+            jumlah.toDouble(),
+        )
+
     }
+    private fun showResult(result: HasilPajak?) {
+        if (result == null) return
+        binding.tvHasil.text = getString(R.string.hasil_x, result.ppn)
+        binding.tvTotal.text = getString(R.string.total_x,result.total)
+    }
+
+
 }
+
+
 
 
