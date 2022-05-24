@@ -16,4 +16,8 @@
     <color name="blue_200">#5757ff</color>
     <color name="blue_500">#2424ff</color>
     <color name="blue_700">#0000ff</color>
+    <color name="nama">#F57F17</color>
+    <color name="harga">#2E7D32</color>
+    <color name="jumlah">#D32F2F</color>
+
 </resources>
