@@ -1,42 +1,42 @@
 [
     {
         "nama": "beras",
-        "gambar": "" 
+        "gambar": "beras.jpg" 
     },
     {
         "nama": "gabah",
-        "gambar": ""
+        "gambar": "gabah.jpg"
     },
     {
         "nama": "sagu",
-        "gambar": ""
+        "gambar": "sagu.jpg"
     },
     {
         "nama": "garam",
-        "gambar": ""
+        "gambar": "garam.jpg"
     },
     {
         "nama": "kedelai",
-        "gambar": ""
+        "gambar": "kedelai.jpg"
     },
     {
         "nama": "daging",
-        "gambar": ""
+        "gambar": "daging.jpg"
     },
     {
         "nama": "telur",
-        "gambar": ""
+        "gambar": "telur.jpg"
     },
     {
         "nama": "susu",
-        "gambar": ""
+        "gambar": "susu.jpg"
     },
     {
         "nama": "buah-buahan",
-        "gambar": ""
+        "gambar": "buah-buahan.jpg"
     },
     {
         "nama": "sayur-sayuran",
-        "gambar": ""
+        "gambar": "sayur-sayuran.jpg"
     }
 ]
